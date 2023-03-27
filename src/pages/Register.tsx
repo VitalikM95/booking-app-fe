@@ -38,7 +38,7 @@ const Register = () => {
   const navigate = useNavigate()
   const { setUser } = useActions()
 
-  const [registerUser, { data: userData, isSuccess }] =
+  const [registerUser, { data: userData, isSuccess, isLoading }] =
     useRegisterUserMutation()
 
   const { handleSubmit, control } = useForm<IRegisterForm>({ mode: 'all' })
@@ -220,6 +220,7 @@ const Register = () => {
           <Button
             type='submit'
             fullWidth
+            disabled={isLoading}
             variant='contained'
             sx={{ mt: 3, mb: 2 }}
           >

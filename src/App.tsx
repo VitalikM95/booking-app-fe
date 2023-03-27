@@ -6,6 +6,7 @@ import Hotel from './pages/Hotel'
 import List from './pages/List'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import NotFound from './pages/NotFound'
 import { useActions } from './services/hooks'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/hotels' element={<List />} />
           <Route path='/hotels/:id' element={<Hotel />} />
+          <Route path='*' element={<NotFound />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

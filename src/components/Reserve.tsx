@@ -17,6 +17,7 @@ import {
   FormControlLabel,
   Divider,
   Button,
+  LinearProgress,
 } from '@mui/material'
 
 interface IProps {
@@ -103,7 +104,7 @@ const Reserve: FC<IProps> = ({ isOpen, setModal, hotelId }) => {
   return (
     <>
       {isLoading ? (
-        <>Loading...</>
+        <LinearProgress />
       ) : (
         <Modal open={isOpen} onClose={setModal}>
           <Box sx={style}>

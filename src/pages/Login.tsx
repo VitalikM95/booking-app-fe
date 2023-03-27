@@ -32,7 +32,7 @@ const Login = () => {
   const isAuth = useIsAuth()
   const { setUser } = useActions()
 
-  const [loginUser, { data: userData, isError, isSuccess }] =
+  const [loginUser, { data: userData, isError, isSuccess, isLoading }] =
     useLoginUserMutation({})
 
   const { handleSubmit, control } = useForm<ILoginForm>({
@@ -152,6 +152,7 @@ const Login = () => {
             type='submit'
             fullWidth
             variant='contained'
+            disabled={isLoading}
             sx={{ mt: 3, mb: 2 }}
           >
             Log In
