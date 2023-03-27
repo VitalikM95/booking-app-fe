@@ -21,7 +21,7 @@ type CustomErrorType = {
 export const bookingApi = createApi({
   reducerPath: 'booking/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4444/api/',
+    baseUrl: `${process.env.REACT_APP_API_URL}api/`,
   }),
   endpoints: build => ({
     getHotels: build.query<IHotel[], ISearchQuery>({
@@ -62,7 +62,7 @@ export const bookingApi = createApi({
 export const authApi = createApi({
   reducerPath: 'auth/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4444/api/auth/',
+    baseUrl: `${process.env.REACT_APP_API_URL}api/auth/`,
   }) as BaseQueryFn<string | FetchArgs, unknown, CustomErrorType, {}>,
   endpoints: build => ({
     registerUser: build.mutation<IUserData, IRegisterForm>({
