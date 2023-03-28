@@ -82,23 +82,31 @@ const Reserve: FC<IProps> = ({ isOpen, setModal, hotelId }) => {
   }
 
   const handleReserve = async () => {
-    selectedRooms.map(roomId => {
-      updateRoom({ roomId, dates: allDates })
-    })
-    refetch()
-    setModal()
-    enqueueSnackbar(
-      `You have booked a ${selectedRooms.length} ${
-        selectedRooms.length == 1 ? 'room' : 'rooms'
-      } in a hotel for a ${allDates.length} ${
-        allDates.length == 1 ? 'night' : 'nights'
-      }`,
-      {
-        variant: 'success',
-        autoHideDuration: 7000,
+    if (!selectedRooms) {
+      enqueueSnackbar(`Please choose room to reserve`, {
+        variant: 'warning',
+        autoHideDuration: 3000,
         preventDuplicate: true,
-      }
-    )
+      })
+    } else {
+      selectedRooms.map(roomId => {
+        updateRoom({ roomId, dates: allDates })
+      })
+      refetch()
+      setModal()
+      enqueueSnackbar(
+        `You have booked a ${selectedRooms.length} ${
+          selectedRooms.length == 1 ? 'room' : 'rooms'
+        } in a hotel for a ${allDates.length} ${
+          allDates.length == 1 ? 'night' : 'nights'
+        }`,
+        {
+          variant: 'success',
+          autoHideDuration: 7000,
+          preventDuplicate: true,
+        }
+      )
+    }
   }
 
   return (
