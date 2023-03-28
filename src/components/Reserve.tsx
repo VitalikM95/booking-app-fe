@@ -82,7 +82,7 @@ const Reserve: FC<IProps> = ({ isOpen, setModal, hotelId }) => {
   }
 
   const handleReserve = async () => {
-    if (!selectedRooms) {
+    if (selectedRooms.length === 0) {
       enqueueSnackbar(`Please choose room to reserve`, {
         variant: 'warning',
         autoHideDuration: 3000,
