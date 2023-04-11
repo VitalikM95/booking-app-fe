@@ -1,7 +1,7 @@
 # Mern Booking App
 
-This is frontend part of my small pet-project created on a MERN stack technologies.
-The project's backend is deployed on Heroku, and the frontend on Versel, you can see the result [here](https://booking-app-fe.vercel.app/)
+This is frontend part of my pet-project created on a MERN stack technologies.
+The project is deployed on Versel, you can see the result [here](https://booking-app-fe-ep2v.vercel.app/)
 
 ## Table of contents
 * [General info](#general-info)
